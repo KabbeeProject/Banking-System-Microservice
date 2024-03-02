@@ -1,9 +1,6 @@
 package Bright.AuthenticationService.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,6 +14,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class Customer {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,13 +27,14 @@ public class Customer {
     private LocalDate dateOfBirth;
     private String gender;
     private String phoneNumber;
-    private String address;
+
+    @Embedded
+    private Address address;
+
     private String country;
-    private String SSN;
+    private String ssn;
 
-    // Getters and setters
-
-    // Constructors (including a default constructor)
+    // Constructors, getters, and setters
 
     // Additional methods if needed
 }
