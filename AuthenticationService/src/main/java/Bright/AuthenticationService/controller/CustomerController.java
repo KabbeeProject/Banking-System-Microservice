@@ -126,6 +126,53 @@ public class CustomerController {
             return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/{username}")
+    public ResponseEntity<?> getCustomerByUsername(@PathVariable String username) {
+        Optional<Customer> customerOptional = customerService.findByUsername(username);
 
+        if (customerOptional.isPresent()) {
+            Customer customer = customerOptional.get();
+            return new ResponseEntity<>(customer, HttpStatus.OK);
+        } else {
+            String errorMessage = "Customer with username " + username + " not found";
+            return new ResponseEntity<>(errorMessage, HttpStatus.NOT_FOUND);
+        }
+    }
+//    {
+//        "firstName": "John",
+//            "lastName": "Doe",
+//            "email": "john.doe@example.com",
+//            "password": "password123",
+//            "username": "johndoe",
+//            "dateOfBirth": "1990-01-01",
+//            "gender": "Male",
+//            "phoneNumber": "+1234567890",
+//            "address": {
+//        "street": "123 Main St",
+//                "city": "Cityville",
+//                "state": "Stateville",
+//                "postalCode": "12345"
+//    },
+//        "country": "Countryville",
+//            "ssn": "123-45-6789"
+//    }
+//{
+//    "firstName": "Musie",
+//        "lastName": "Fanuel",
+//        "email": "musiefanuel@gmail.com",
+//        "password": "password123",
+//        "username": "musief",
+//        "dateOfBirth": "1992-01-01",
+//        "gender": "Male",
+//        "phoneNumber": "+6412339199",
+//        "address": {
+//    "street": "123 Main St",
+//            "city": "Oakland",
+//            "state": "California",
+//            "postalCode": "94619"
+//},
+//    "country": "USA",
+//        "ssn": "987-65-4321"
+//}
 
 }
