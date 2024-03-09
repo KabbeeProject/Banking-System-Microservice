@@ -1,9 +1,16 @@
 package Bright.AuthenticationService.entity;
 
+<<<<<<< HEAD
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
+=======
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+>>>>>>> login/Msgun
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -17,11 +24,15 @@ import java.time.LocalDate;
 @Getter
 @Setter
 public class Customer {
+<<<<<<< HEAD
 
+=======
+>>>>>>> login/Msgun
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+<<<<<<< HEAD
     @NotBlank(message = "First name is required")
     private String firstName;
 
@@ -62,3 +73,23 @@ public class Customer {
     @Pattern(regexp = "^\\d{3}-\\d{2}-\\d{4}$", message = "Invalid SSN format. Use ###-##-####.")
     private String ssn;
 }
+=======
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String password;
+    private String username;
+    private LocalDate dateOfBirth;
+    private String gender;
+    private String phoneNumber;
+    private String address;
+    private String country;
+    private String SSN;
+
+    // Getters and setters
+
+    // Constructors (including a default constructor)
+
+    // Additional methods if needed
+}
+>>>>>>> login/Msgun

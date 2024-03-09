@@ -1,5 +1,6 @@
 package Bright.AuthenticationService.controller;
 
+<<<<<<< HEAD
 import Bright.AuthenticationService.entity.Address;
 import Bright.AuthenticationService.entity.Customer;
 import Bright.AuthenticationService.service.CustomerService;
@@ -8,10 +9,22 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
+=======
+import Bright.AuthenticationService.entity.Customer;
+import Bright.AuthenticationService.service.CustomerService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+>>>>>>> login/Msgun
 
 @RestController
 @RequestMapping("/api/customers")
 public class CustomerController {
+<<<<<<< HEAD
 
     private final CustomerService customerService;
     private final BCryptPasswordEncoder passwordEncoder;
@@ -19,10 +32,18 @@ public class CustomerController {
     public CustomerController(CustomerService customerService, BCryptPasswordEncoder passwordEncoder) {
         this.customerService = customerService;
         this.passwordEncoder = passwordEncoder;
+=======
+    private final CustomerService customerService;
+
+    @Autowired
+    public CustomerController(CustomerService customerService) {
+        this.customerService = customerService;
+>>>>>>> login/Msgun
     }
 
     @PostMapping("/register")
     public ResponseEntity<String> registerCustomer(@RequestBody Customer customer) {
+<<<<<<< HEAD
         // Check if there is an existing user with the same email, SSN, or phone number
         if (customerService.existsByUsername(customer.getUsername())|| customerService.existsByEmail(customer.getEmail()) ||
                 customerService.existsBySsn(customer.getSsn()) ||
@@ -38,10 +59,14 @@ public class CustomerController {
         // Save the customer
         customerService.registerCustomer(customer);
 
+=======
+        customerService.registerCustomer(customer);
+>>>>>>> login/Msgun
         String message = "Customer registered successfully";
         return new ResponseEntity<>(message, HttpStatus.CREATED);
     }
 
+<<<<<<< HEAD
     @PutMapping("/update/{username}")
     public ResponseEntity<String> updateCustomer(@PathVariable String username, @RequestBody Customer updatedCustomer) {
         // Find the existing customer by username
@@ -175,4 +200,7 @@ public class CustomerController {
 //        "ssn": "987-65-4321"
 //}
 
+=======
+    // Additional endpoints for retrieving customer information, updating, or deleting
+>>>>>>> login/Msgun
 }
