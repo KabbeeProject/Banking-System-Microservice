@@ -5,6 +5,8 @@ import Bright.AuthenticationService.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class CustomerService {
     private final CustomerRepository customerRepository;
@@ -17,6 +19,25 @@ public class CustomerService {
     public Customer registerCustomer(Customer customer) {
         // Additional validation and business logic can be added here
         return customerRepository.save(customer);
+    }
+    public boolean existsByEmail(String email) {
+        return customerRepository.existsByEmail(email);
+    }
+
+    public boolean existsBySsn(String ssn) {
+        return customerRepository.existsBySsn(ssn);
+    }
+    public boolean existsByUsername(String username) {
+        return customerRepository.existsByUsername(username);
+    }
+
+
+    public boolean existsByPhoneNumber(String phoneNumber) {
+        return customerRepository.existsByPhoneNumber(phoneNumber);
+    }
+
+    public Optional<Customer> findByUsername(String username) {
+        return customerRepository.findByUsername(username);
     }
 }
 

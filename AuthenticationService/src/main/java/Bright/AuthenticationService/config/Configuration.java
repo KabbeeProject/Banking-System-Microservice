@@ -1,4 +1,4 @@
-package Bright.AuthenticationService.config;
-
-public class Configuration {
-}
+//package Bright.AuthenticationService.config;
+//
+//public class Configuration {
+//}
